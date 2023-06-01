@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://2motn80fhky6"]
+
+[ext_resource type="FontFile" uid="uid://cmchbdypu1xay" path="res://assets/fonts/PixelOperator8.ttf" id="1_3fhga"]
+[ext_resource type="Script" path="res://scripts/cronometro.gd" id="1_t265c"]
+
+[node name="Cronometro" type="Node2D"]
+script = ExtResource("1_t265c")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("1_3fhga")
+theme_override_font_sizes/font_size = 100
+text = "00:00"
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
